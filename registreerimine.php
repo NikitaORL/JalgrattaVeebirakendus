@@ -19,7 +19,7 @@ if(isset($_REQUEST["sisestusnupp"])){
         $yhendus->close();
 
 
-        header("Location: teooriaeksam.php");
+        header("Location: teooriaeksam.php"); //
         exit();
     }
 }
