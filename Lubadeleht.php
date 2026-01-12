@@ -1,6 +1,18 @@
 <?php
 global $yhendus;
 require_once("konf.php");
+
+
+
+/*--------------------kustutamine---------------------------------*/
+if(isset($_REQUEST["kustuta_id"])){
+    $kask = $yhendus->prepare("DELETE FROM jalgrattaeksam WHERE id=?");
+    $kask->bind_param("i", $_REQUEST["kustuta_id"]);
+    $kask->execute();
+}
+/*------------------------------------------------------*/
+
+
 if(!empty($_REQUEST["vormistamine_id"])){
     $kask=$yhendus->prepare(
         "UPDATE jalgrattaeksam SET luba=1 WHERE id=?");
@@ -12,6 +24,7 @@ $kask=$yhendus->prepare(
  slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;");
 $kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus,   $slaalom, $ringtee, $t2nav, $luba);
 $kask->execute();
+
 
 function asenda($nr){
     if($nr==-1){return ".";} //tegemata
@@ -36,6 +49,7 @@ function asenda($nr){
         <th>Ringtee</th>
         <th>Tänavasõit</th>
         <th>Lubade väljastus</th>
+        <th>Kustutamine</th>
     </tr>
     <?php
     while($kask->fetch()){
@@ -55,6 +69,11 @@ function asenda($nr){
  <td>$asendatud_ringtee</td> 
  <td>$asendatud_t2nav</td> 
  <td>$loalahter</td> 
+ 
+ <td>
+        <a href='?kustuta_id=$id'>Kustuta</a>
+ </td>
+ 
  </tr> 
  ";
     }
