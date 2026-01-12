@@ -2,27 +2,11 @@
 global $yhendus;
 require_once("konf.php");
 require("nav.php");
-
-if(isset($_REQUEST["sisestusnupp"])){
-
-    $eesnimi = trim($_REQUEST["eesnimi"]);
-    $perekonnanimi = trim($_REQUEST["perekonnanimi"]);
-
-    // Kontroll: ees- ja perekonnanimi ei tohi olla tühjad ega numbrilised
-    if($eesnimi === "" || $perekonnanimi === "" || is_numeric($eesnimi) || is_numeric($perekonnanimi)){
-        echo "<p>Sisesta korrektne ees ja perekonnanimi</p>";
-    } else {
-
-        $kask = $yhendus->prepare(
-            "INSERT INTO jalgrattaeksam(eesnimi, perekonnanimi) VALUES (?, ?)");
-        $kask->bind_param("ss", $eesnimi, $perekonnanimi);
-        $kask->execute();
-        $yhendus->close();
+require("funktsioonid.php");
 
 
-        header("Location: teooriaeksam.php"); //
-        exit();
-    }
+if(isset($_POST["sisestusnupp"])){
+    registreerimine($_POST["eesnimi"], $_POST["perekonnanimi"]);
 }
 ?>
 <!doctype html>

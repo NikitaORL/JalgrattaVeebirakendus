@@ -2,28 +2,21 @@
 global $yhendus;
 require_once("konf.php");
 require("nav.php");
+require("funktsioonid.php");
 
 
 /*--------------------kustutamine---------------------------------*/
 if(isset($_REQUEST["kustuta_id"])){
-    $kask = $yhendus->prepare("DELETE FROM jalgrattaeksam WHERE id=?");
-    $kask->bind_param("i", $_REQUEST["kustuta_id"]);
-    $kask->execute();
+    kustuta($_REQUEST["kustuta_id"]);
 }
 /*------------------------------------------------------*/
 
 
 if(!empty($_REQUEST["vormistamine_id"])){
-    $kask=$yhendus->prepare(
-        "UPDATE jalgrattaeksam SET luba=1 WHERE id=?");
-    $kask->bind_param("i", $_REQUEST["vormistamine_id"]);
-    $kask->execute();
+    vormistamineLubadeleht();
 }
-$kask=$yhendus->prepare(
-    "SELECT id, eesnimi, perekonnanimi, teooriatulemus,  
- slaalom, ringtee, t2nav, luba FROM jalgrattaeksam;");
-$kask->bind_result($id, $eesnimi, $perekonnanimi, $teooriatulemus,   $slaalom, $ringtee, $t2nav, $luba);
-$kask->execute();
+
+
 
 
 function asenda($nr){
@@ -53,31 +46,7 @@ function asenda($nr){
         <th>Kustutamine</th>
     </tr>
     <?php
-    while($kask->fetch()){
-        $asendatud_slaalom=asenda($slaalom);
-        $asendatud_ringtee=asenda($ringtee);
-        $asendatud_t2nav=asenda($t2nav);
-        $loalahter=".";
-        if($luba==1){$loalahter="Väljastatud";}
-        if($luba==-1 and $t2nav==1){
-            $loalahter="<a href='?vormistamine_id=$id'>Vormista load</a>";  }
-        echo " 
- <tr> 
- <td>$eesnimi</td> 
- <td>$perekonnanimi</td> 
- <td>$teooriatulemus</td> 
- <td>$asendatud_slaalom</td> 
- <td>$asendatud_ringtee</td> 
- <td>$asendatud_t2nav</td> 
- <td>$loalahter</td> 
- 
- <td>
-        <a href='?kustuta_id=$id'>Kustuta</a>
- </td>
- 
- </tr> 
- ";
-    }
+    vaataLubadeleht();
     ?>
 </table>
 </body>

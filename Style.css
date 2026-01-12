@@ -1,84 +1,117 @@
-/* Общие стили для страницы */
+/* ------------------- ОБЩИЕ СТИЛИ ------------------- */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    background-color: #f4f4f4;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
-/* Шапка сайта */
-header {
-    background-color: #0077cc;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
-
-/* Навигация */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Основной контент */
-main {
-    padding: 20px;
-}
-
-/* Таблицы */
-table {
-    border-collapse: collapse;
-    width: 90%;
-    margin: 20px auto;
-    background-color: #fff;
-}
-
-table th, table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
-}
-
-table th {
-    background-color: #0077cc;
-    color: white;
-}
-
-/* Кнопки и ссылки действий */
 a {
     color: #0077cc;
     text-decoration: none;
-    font-weight: bold;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-/* Подвал сайта */
+/* ------------------- ШАПКА ------------------- */
+header {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ------------------- НАВИГАЦИЯ ------------------- */
+nav {
+    background-color: #e2e2e2;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    font-weight: bold;
+    color: #0077cc;
+}
+
+/* ------------------- ОСНОВНОЙ КОНТЕНТ ------------------- */
+main {
+    padding: 20px;
+}
+
+/* ------------------- ТАБЛИЦЫ ------------------- */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #0077cc;
+    color: #fff;
+}
+
+/* ------------------- ФОРМЫ ------------------- */
+form dl {
+    width: 300px;
+    margin: 20px auto;
+}
+
+form dt {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form dd input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #005fa3;
+}
+
+/* ------------------- ПОДВАЛ ------------------- */
 footer {
     background-color: #333;
-    color: white;
+    color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 12px 0;
     margin-top: 20px;
     font-size: 14px;
 }
