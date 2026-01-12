@@ -2,6 +2,8 @@
 global $yhendus;
 
 require_once("konf.php");
+require("nav.php");
+
 if(!empty($_REQUEST["korras_id"])){
     $kask=$yhendus->prepare(
         "UPDATE jalgrattaeksam SET t2nav=1 WHERE id=?");
@@ -21,6 +23,7 @@ $kask->execute();
 <html>
 <head>
     <title>Tänavasõit</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <h1>Tänavasõit</h1>
@@ -42,3 +45,7 @@ $kask->execute();
 </table>
 </body>
 </html>
+
+<?php
+require ("footer.php");
+?>

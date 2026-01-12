@@ -1,7 +1,7 @@
 <?php
 global $yhendus;
 require_once("konf.php");
-
+require("nav.php");
 
 
 /*--------------------kustutamine---------------------------------*/
@@ -37,6 +37,7 @@ function asenda($nr){
 <html>
 <head>
     <title>Lõpetamine</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <h1>Lõpetamine</h1>
@@ -81,3 +82,7 @@ function asenda($nr){
 </table>
 </body>
 </html>
+
+<?php
+require ("footer.php");
+?>

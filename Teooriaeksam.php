@@ -1,6 +1,8 @@
 <?php
 global $yhendus;
 require_once("konf.php");
+require("nav.php");
+
 if(!empty($_REQUEST["teooriatulemus"])){
     $kask=$yhendus->prepare(
         "UPDATE jalgrattaeksam SET teooriatulemus=? WHERE id=?");
@@ -14,6 +16,7 @@ $kask->execute();
 <html>
 <head>
     <title>Teooriaeksam</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <table>
@@ -36,3 +39,7 @@ $kask->execute();
 </table>
 </body>
 </html>
+
+<?php
+require ("footer.php");
+?>

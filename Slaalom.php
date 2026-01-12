@@ -2,6 +2,8 @@
 global $yhendus;
 
 require_once("konf.php");
+require_once("nav.php");
+
 if(!empty($_REQUEST["korras_id"])){
     $kask=$yhendus->prepare(
         "UPDATE jalgrattaeksam SET slaalom=1 WHERE id=?");
@@ -23,6 +25,7 @@ $kask->execute();
 <html>
 <head>
     <title>Slaalom</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <h1>Slaalom</h1>
@@ -43,4 +46,8 @@ $kask->execute();
     ?>
 </table>
 </body>
-</html> 
+</html>
+
+<?php
+require ("footer.php");
+?>

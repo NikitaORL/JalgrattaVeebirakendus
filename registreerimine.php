@@ -1,6 +1,7 @@
 <?php
 global $yhendus;
 require_once("konf.php");
+require("nav.php");
 
 if(isset($_REQUEST["sisestusnupp"])){
 
@@ -28,6 +29,7 @@ if(isset($_REQUEST["sisestusnupp"])){
 <html>
 <head>
     <title>Kasutaja registreerimine</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 <h1>Kasutaja registreerimine</h1>
@@ -45,3 +47,7 @@ if(isset($_REQUEST["sisestusnupp"])){
 </form>
 </body>
 </html>
+
+<?php
+require ("footer.php");
+?>
